@@ -1,139 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Grape Valor Project</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0f0f0f;
-    color: #f5f5f5;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-  header {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+body {
+  background: #0b0b0b;
+  color: #f5f5f5;
+  overflow-x: hidden;
+}
 
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-    url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
-    background-size: cover;
-    background-position: center;
-  }
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 
-  h1 {
-    font-size: 48px;
-    margin: 0;
-  }
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
+  url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
+  background-size: cover;
+  background-position: center;
+}
 
-  p.subtitle {
-    font-size: 18px;
-    max-width: 600px;
-    margin-top: 15px;
-    opacity: 0.8;
-  }
+.hero h1 {
+  font-size: 54px;
+  letter-spacing: 1px;
+}
 
-  section {
-    padding: 80px 20px;
-    max-width: 900px;
-    margin: auto;
-  }
+.hero p {
+  max-width: 700px;
+  margin-top: 15px;
+  font-size: 18px;
+  opacity: 0.85;
+}
 
-  h2 {
-    color: #d4af37;
-    margin-bottom: 20px;
-  }
+.btn {
+  margin-top: 25px;
+  padding: 12px 24px;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-  .card {
-    background: #1a1a1a;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 12px;
-    border: 1px solid #2a2a2a;
-  }
+.btn:hover {
+  background: #d4af37;
+  color: black;
+}
 
-  footer {
-    text-align: center;
-    padding: 40px;
-    opacity: 0.6;
-    font-size: 14px;
-  }
+/* SECTIONS */
+section {
+  padding: 90px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
-  .highlight {
-    color: #d4af37;
-    font-weight: bold;
-  }
+h2 {
+  color: #d4af37;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #151515;
+  border: 1px solid #222;
+  padding: 20px;
+  border-radius: 14px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* ANIMATION */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.6;
+  font-size: 14px;
+}
 </style>
-
 </head>
 
 <body>
 
-<header>
+<div class="hero">
   <h1>Grape Valor Project</h1>
-  <p class="subtitle">
-    A sustainable zero-waste viticulture initiative transforming Serbian grape varieties into premium gourmet products.
+  <p>
+    A zero-waste viticulture innovation transforming Serbian grape varieties into premium gourmet products combining tradition, sustainability, and modern gastronomy.
   </p>
-</header>
+  <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    Explore Project
+  </button>
+</div>
 
-<section>
-  <h2>About the Project</h2>
-  <div class="card">
-    As a student of Fruit Growing and Viticulture at the University of Novi Sad,
-    I developed this project based on practical vineyard experience and the idea of
-    maximizing the potential of grapes through sustainable, zero-waste production.
-  </div>
+<section id="about" class="hidden">
+  <h2>About</h2>
+  <p>
+    Developed by a student of Fruit Growing and Viticulture at the University of Novi Sad,
+    this project explores how grapes can be fully utilized through sustainable and innovative food production systems.
+  </p>
 </section>
 
-<section>
+<section class="hidden">
   <h2>Concept</h2>
-  <div class="card">
-    The project combines traditional Serbian grape varieties with modern food innovation,
-    creating a premium product line inspired by sustainability, gastronomy, and value-added processing.
-  </div>
+  <p>
+    The idea combines Serbian grape heritage with modern gourmet food trends,
+    focusing on zero-waste production and value-added products for both local and international markets.
+  </p>
 </section>
 
-<section>
+<section class="hidden">
   <h2>Products</h2>
 
-  <div class="card">
-    <span class="highlight">Grape Chutney</span><br>
-    A gourmet sweet-sour condiment inspired by global cuisine, adapted to modern gastronomy.
-  </div>
+  <div class="grid">
 
-  <div class="card">
-    <span class="highlight">Tamjanika Jam</span><br>
-    Aromatic premium jam made from one of Serbia’s most distinctive grape varieties.
-  </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03">
+      <h3>Grape Chutney</h3>
+      <p>Sweet-sour gourmet condiment inspired by global cuisine.</p>
+    </div>
 
-  <div class="card">
-    <span class="highlight">Verjus</span><br>
-    A refined green grape juice used as a modern alternative to vinegar and lemon.
-  </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1604908177522-040f8d1e7c6b">
+      <h3>Tamjanika Jam</h3>
+      <p>Aromatic premium jam from a distinctive Serbian grape variety.</p>
+    </div>
 
-  <div class="card">
-    <span class="highlight">Grape Molasses (Saba)</span><br>
-    Traditional slow-reduced grape must using Prokupac variety, with no added sugar.
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1604908554165-9f8b0d7f4a1c">
+      <h3>Verjus</h3>
+      <p>Green grape juice used as a refined culinary alternative to vinegar or lemon.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03">
+      <h3>Grape Molasses</h3>
+      <p>Traditional slow-reduced grape must made from Prokupac grapes.</p>
+    </div>
+
   </div>
 </section>
 
-<section>
+<section class="hidden">
   <h2>Vision</h2>
-  <div class="card">
-    My goal is to build a recognizable micro-brand that promotes Serbian grape heritage,
-    sustainable food production, and women entrepreneurship in agrifood innovation.
-  </div>
+  <p>
+    To build a recognizable micro brand that promotes Serbian grape heritage,
+    sustainable food innovation, and women entrepreneurship in agrifood systems.
+  </p>
 </section>
 
 <footer>
-  © 2026 Grape Valor Project | EWA Programme Application
+  © 2026 Grape Valor Project | EWA Agrifood Innovation Proposal
 </footer>
+
+<script>
+// scroll animation
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
